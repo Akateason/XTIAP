@@ -32,20 +32,29 @@ XT_SINGLETON_H(XTIAP)
 // init With Product Identifiers
 - (void)setup:(NSSet *)productIdentifiers ;
 
-//get Products List
+// get Products List
 - (void)requestProductsWithCompletion:(IAPProductsResponseBlock)completion ;
-//get one product .
+// get one product .
 - (void)requestProductWithID:(NSString *)identifier complete:(void(^)(SKProduct *product))completion ;
 
-//Buy Product
+// Buy Product
 - (void)buyProduct:(SKProduct *)product ;
 
-//restore Products
+// restore Products
 //- (void)restoreProductsWithCompletion:(resoreProductsCompleteResponseBlock)completion;
 
-//check receipt
+/**
+ check receipt
+
+ @param receiptData 收据
+ @param secretKey 共享密钥
+ @param isExcludeOld 是否排除老事务
+ @param inDebugMode 是否开发模式
+ @param completion 返回
+ */
 - (void)checkReceipt:(NSData *)receiptData
         sharedSecret:(NSString *)secretKey
+          excludeOld:(BOOL)isExcludeOld
          inDebugMode:(BOOL)inDebugMode
         onCompletion:(checkReceiptCompleteResponseBlock)completion ;
 

@@ -102,6 +102,7 @@ XT_SINGLETON_M(XTIAP)
 
 - (void)checkReceipt:(NSData *)receiptData
         sharedSecret:(NSString *)secretKey
+          excludeOld:(BOOL)isExcludeOld
          inDebugMode:(BOOL)inDebugMode
         onCompletion:(checkReceiptCompleteResponseBlock)completion {
     
@@ -109,7 +110,7 @@ XT_SINGLETON_M(XTIAP)
     
     NSString *receiptBase64 = [receiptData base64EncodedString] ;
     NSMutableDictionary *dicBody = [@{@"receipt-data":receiptBase64 ,
-                                      @"exclude-old-transactions":@1} mutableCopy] ;
+                                      @"exclude-old-transactions":@(isExcludeOld ? 1 : 0)} mutableCopy] ;
     if (secretKey != nil) {
         [dicBody setObject:secretKey forKey:@"password"] ;
     }
@@ -119,10 +120,10 @@ XT_SINGLETON_M(XTIAP)
     else url = @"https://buy.itunes.apple.com/verifyReceipt" ;
     
     [XTRequest reqWithUrl:url mode:XTRequestMode_POST_MODE header:nil parameters:nil rawBody:[dicBody yy_modelToJSONString] hud:NO success:^(id json, NSURLResponse *response) {
-        
+        NSLog(@"checkReceipt : %@",json) ;
         NSInteger status = [json[@"status"] integerValue]  ;
         if (status == 21007) { // testFlight问题,在product包中使用沙盒.
-            [self checkReceipt:receiptData sharedSecret:secretKey inDebugMode:YES onCompletion:completion] ;
+            [self checkReceipt:receiptData sharedSecret:secretKey excludeOld:isExcludeOld inDebugMode:YES onCompletion:completion] ;
         }
         else {
             if (self.checkReceiptCompleteBlock) {

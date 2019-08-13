@@ -38,8 +38,8 @@
         NSLog(@"transactionState %ld",(long)transaction.transactionState) ;
         if (transaction.transactionState == SKPaymentTransactionStatePurchased) {
             
-            [[XTIAP sharedInstance] checkReceipt:[NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]] sharedSecret:@"5498d6de8ace4f52acd789f795ee9a81" inDebugMode:YES onCompletion:^(NSDictionary *rec, NSError *error) {
-
+            [[XTIAP sharedInstance] checkReceipt:[NSData dataWithContentsOfURL:[[NSBundle mainBundle] appStoreReceiptURL]] sharedSecret:@"5498d6de8ace4f52acd789f795ee9a81" excludeOld:NO inDebugMode:YES onCompletion:^(NSDictionary *rec, NSError *error) {
+                
                 NSDictionary *dictLatestReceiptsInfo = rec[@"latest_receipt_info"];
                 long long int expirationDateMs = [[dictLatestReceiptsInfo valueForKeyPath:@"@max.expires_date_ms"] longLongValue] ; // 结束时间
                 long long requestDateMs = [rec[@"receipt"][@"request_date_ms"] longLongValue] ;//请求时间
