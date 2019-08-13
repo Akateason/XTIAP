@@ -21,6 +21,7 @@
     
     NSSet *dataSet = [[NSSet alloc] initWithObjects:@"iap.octopus.month", nil] ;
     [[XTIAP sharedInstance] setup:dataSet] ;
+    [XTIAP sharedInstance].isManuallyFinishTransaction = YES ;
     
 //    [[XTIAP sharedInstance] requestProductsWithCompletion:^(SKProductsRequest *request, SKProductsResponse *response) {
 //
@@ -52,6 +53,11 @@
         }
         else if (transaction.transactionState == SKPaymentTransactionStatePurchasing) {
             
+        }
+        
+        // 如果配置了 isManuallyFinishTransaction = YES   手动结束任务
+        if ([SKPaymentQueue defaultQueue]) {
+            [[SKPaymentQueue defaultQueue] finishTransaction:transaction] ;
         }
         
     } ;

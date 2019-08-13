@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB029FF070E0B3584C52467B65D61553"
+               BlueprintIdentifier = "BE4A8E9617755A6817A258AB0A793810"
                BuildableName = "RxWebViewController.framework"
                BlueprintName = "RxWebViewController"
                ReferencedContainer = "container:Pods.xcodeproj">

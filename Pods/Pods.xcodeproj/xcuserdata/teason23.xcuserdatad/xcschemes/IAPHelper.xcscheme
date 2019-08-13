@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CA11C3AD3BD79DA4E33CEFD840A9F1FA"
-               BuildableName = "UIFontWDCustomLoader.framework"
-               BlueprintName = "UIFontWDCustomLoader"
+               BlueprintIdentifier = "0FA5CC89D7F443C80CC66758B100432A"
+               BuildableName = "IAPHelper.framework"
+               BlueprintName = "IAPHelper"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

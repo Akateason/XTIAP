@@ -66,22 +66,14 @@ XT_SINGLETON_M(XTIAP)
 }
 
 - (void)completeTransaction:(SKPaymentTransaction *)transaction {
-    if ([SKPaymentQueue defaultQueue]) {
+    if ([SKPaymentQueue defaultQueue] && !self.isManuallyFinishTransaction) {
         [[SKPaymentQueue defaultQueue] finishTransaction:transaction] ;
-    }
-    
-    if (self.g_transactionBlock) {
-        self.g_transactionBlock(transaction);
     }
 }
 
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction {
-    if ([SKPaymentQueue defaultQueue]) {
-        [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-    }
-    
-    if (self.g_transactionBlock) {
-        self.g_transactionBlock(transaction);
+    if ([SKPaymentQueue defaultQueue] && !self.isManuallyFinishTransaction) {
+        [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     }
 }
 
@@ -90,12 +82,8 @@ XT_SINGLETON_M(XTIAP)
         NSLog(@"Transaction error: %@ %ld", transaction.error.localizedDescription,(long)transaction.error.code);
     }
     
-    if ([SKPaymentQueue defaultQueue]) {
-        [[SKPaymentQueue defaultQueue] finishTransaction: transaction];
-        
-        if (self.g_transactionBlock) {
-            self.g_transactionBlock(transaction);
-        }
+    if ([SKPaymentQueue defaultQueue] && !self.isManuallyFinishTransaction) {
+        [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     }
 }
 
@@ -166,6 +154,8 @@ XT_SINGLETON_M(XTIAP)
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions {
     for (SKPaymentTransaction *transaction in transactions) {
+        if (self.g_transactionBlock) self.g_transactionBlock(transaction) ;
+        
         switch (transaction.transactionState) {
             case SKPaymentTransactionStatePurchased:
                 [self completeTransaction:transaction];

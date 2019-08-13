@@ -35,6 +35,7 @@ PODS:
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - FTPopOverMenu (2.0.3)
+  - IAPHelper (1.1)
   - Masonry (1.1.0)
   - MJRefresh (3.2.0)
   - ReactiveObjC (3.1.1)
@@ -82,6 +83,7 @@ PODS:
   - YYModel (1.0.4)
 
 DEPENDENCIES:
+  - IAPHelper
   - XTlib
 
 SPEC REPOS:
@@ -92,6 +94,7 @@ SPEC REPOS:
     - FDFullscreenPopGesture
     - FMDB
     - FTPopOverMenu
+    - IAPHelper
     - Masonry
     - MJRefresh
     - ReactiveObjC
@@ -116,6 +119,7 @@ SPEC CHECKSUMS:
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   FTPopOverMenu: 8aa89de66e72b53db3e7eeab42243d393237768f
+  IAPHelper: fd74f53b0ac142eed085777b88b86a11746a2dd4
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
@@ -133,6 +137,6 @@ SPEC CHECKSUMS:
   XTReq: f5added0278758ca358f62a3de30a118f1b6d94a
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 0e4ea4a807ba1eb0a1d471bdbbe4e17900fafb24
+PODFILE CHECKSUM: 150a09c1e8d515fce7e2b6a73a1e7ff525d97c1f
 
 COCOAPODS: 1.6.1

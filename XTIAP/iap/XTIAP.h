@@ -23,9 +23,18 @@ typedef void (^resoreProductsCompleteResponseBlock) (SKPaymentQueue* payment,NSE
 @interface XTIAP : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 XT_SINGLETON_H(XTIAP)
 
-@property (nonatomic, copy)  NSSet              *productIdentifiers ;
-@property (nonatomic, copy)  NSArray            *products ;
-@property (nonatomic,strong) SKProductsRequest  *request ;
+@property (nonatomic, copy)     NSSet              *productIdentifiers ;
+@property (nonatomic, copy)     NSArray            *products ;
+@property (nonatomic, strong)   SKProductsRequest  *request ;
+
+/** Default is NO . 是否手动自定义控制事务结束 .
+ if ([SKPaymentQueue defaultQueue]) {
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction] ;
+ }
+ */
+@property (nonatomic)           BOOL               isManuallyFinishTransaction ;
+
+
 // global block transaction call back
 @property (nonatomic,copy) IAPSKPaymentTransactionValueChangedBlock g_transactionBlock ;
 
