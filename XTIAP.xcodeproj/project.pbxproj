@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D178DE634E4F8DE91DB2A4F /* Pods_XTIAP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07275993C7EF84C0D70968BC /* Pods_XTIAP.framework */; };
 		8F8AFC9E23016CBF00FE2556 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F8AFC9D23016CBF00FE2556 /* StoreKit.framework */; };
+		8F8AFCA02302B48100FE2556 /* XTIAP.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 8F8AFC9F2302B48100FE2556 /* XTIAP.podspec */; };
 		8FACE57922F81AC40033A33E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FACE57822F81AC40033A33E /* AppDelegate.m */; };
 		8FACE57C22F81AC40033A33E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FACE57B22F81AC40033A33E /* ViewController.m */; };
 		8FACE57F22F81AC40033A33E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FACE57D22F81AC40033A33E /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 		07275993C7EF84C0D70968BC /* Pods_XTIAP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XTIAP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		220B9AEFAEE894CE33869B64 /* Pods-XTIAP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XTIAP.debug.xcconfig"; path = "Target Support Files/Pods-XTIAP/Pods-XTIAP.debug.xcconfig"; sourceTree = "<group>"; };
 		8F8AFC9D23016CBF00FE2556 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8F8AFC9F2302B48100FE2556 /* XTIAP.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XTIAP.podspec; sourceTree = "<group>"; };
 		8FACE57422F81AC40033A33E /* XTIAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XTIAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FACE57722F81AC40033A33E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8FACE57822F81AC40033A33E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		8FACE56B22F81AC30033A33E = {
 			isa = PBXGroup;
 			children = (
+				8F8AFC9F2302B48100FE2556 /* XTIAP.podspec */,
 				8FACE57622F81AC40033A33E /* XTIAP */,
 				8FACE57522F81AC40033A33E /* Products */,
 				342EE9F244D14354C00FCCB8 /* Pods */,
@@ -260,6 +263,7 @@
 				8FACE58422F81AC60033A33E /* LaunchScreen.storyboard in Resources */,
 				8FACE58122F81AC60033A33E /* Assets.xcassets in Resources */,
 				8FACE57F22F81AC40033A33E /* Main.storyboard in Resources */,
+				8F8AFCA02302B48100FE2556 /* XTIAP.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "StoreKit/StoreKit.h"
-#import <XTlib/XTlib.h>
+#import <XTBase/XTBase.h>
+#import <XTReq/XTReq.h>
 
 typedef void (^IAPProductsResponseBlock)(SKProductsRequest* request , SKProductsResponse* response);
 
