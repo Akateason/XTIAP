@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>xt_red</key>
+	<string>EA3556</string>
+	<key>xt_sugarRed</key>
+	<string>FE4365</string>
+	<key>xt_facePink</key>
+	<string>FC9D9A</string>
+	<key>xt_champagne</key>
+	<string>F9CDAD</string>
+	<key>xt_bg_lightGray</key>
+	<string>EDE5E2</string>
+	<key>xt_bg_beachStorm</key>
+	<string>E0E4CC</string>
+	<key>xt_yellow</key>
+	<string>EDDE45</string>
+	<key>xt_lightOrange</key>
+	<string>F38630</string>
+	<key>xt_orange</key>
+	<string>FA6900</string>
+	<key>xt_skyBlue</key>
+	<string>61D2D6</string>
+	<key>xt_pondWater</key>
+	<string>A7DBD8</string>
+	<key>xt_skyCyan</key>
+	<string>3FB8AF</string>
+	<key>xt_seedGreen</key>
+	<string>AEE239</string>
+	<key>xt_grassGreen</key>
+	<string>8FBE00</string>
+</dict>
+</plist>

@@ -1,0 +1,6 @@
+framework module RxWebViewController {
+  umbrella header "RxWebViewController-umbrella.h"
+
+  export *
+  module * { export * }
+}
