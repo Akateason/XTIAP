@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'XTIAP'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'A short description of XTIAP.'
   s.description      = 'iOS iap util (Objective-C)'
   s.homepage         = 'https://github.com/akateason/XTIAP'

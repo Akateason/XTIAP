@@ -94,9 +94,9 @@ XT_SINGLETON_M(XTIAP)
          inDebugMode:(BOOL)inDebugMode
         onCompletion:(checkReceiptCompleteResponseBlock)completion {
     
-    self.checkReceiptCompleteBlock = completion;
-    
     if (!receiptData) return ;
+
+    self.checkReceiptCompleteBlock = completion;    
     
     NSString *receiptBase64 = [receiptData base64EncodedString] ;
     NSMutableDictionary *dicBody = [@{@"receipt-data":receiptBase64 ,
