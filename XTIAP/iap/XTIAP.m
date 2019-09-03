@@ -96,6 +96,8 @@ XT_SINGLETON_M(XTIAP)
     
     self.checkReceiptCompleteBlock = completion;
     
+    if (!receiptData) return ;
+    
     NSString *receiptBase64 = [receiptData base64EncodedString] ;
     NSMutableDictionary *dicBody = [@{@"receipt-data":receiptBase64 ,
                                       @"exclude-old-transactions":@(isExcludeOld ? 1 : 0)} mutableCopy] ;
