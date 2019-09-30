@@ -258,7 +258,17 @@ static char base64EncodingTable[64] = {
     }
     else {
         if (self.checkReceiptCompleteBlock) {
-            self.checkReceiptCompleteBlock(json, nil) ;
+            if (!json) { // fail
+                @weakify(self)
+                [self refreshReceipt:^(NSData *receiptData) {
+                    @strongify(self)
+                    self.m_receiptData = receiptData ;
+                    [self checkReceipt:receiptData sharedSecret:self.m_secretKey excludeOld:self.m_isExcludeOld inDebugMode:YES onCompletion:self.checkReceiptCompleteBlock] ;
+                }] ;
+            }
+            else { // success
+                self.checkReceiptCompleteBlock(json, nil) ;
+            }
         }
     }
 }
