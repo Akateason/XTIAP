@@ -250,7 +250,7 @@ static char base64EncodingTable[64] = {
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSString *response = [[NSString alloc] initWithData:self.receiptRequestData encoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSDictionary yy_modelWithJSON:response] ;
+    NSDictionary *json = [self.class dictionaryWithJsonString:response] ;
 
     NSInteger status = [json[@"status"] integerValue]  ;
     if (status == 21007) { // testFlight问题,在product包中使用沙盒.
@@ -258,7 +258,8 @@ static char base64EncodingTable[64] = {
     }
     else {
         if (self.checkReceiptCompleteBlock) {
-            if (!json) { // fail 收据为空，刷新收据
+            if (!json) { // fail 收据为空，刷新收据 如果收据无效或丢失，请使用此API请求新收据。在沙盒环境中，您可以使用任何属性组合请求收据，以测试与批量采购计划收据相关的状态转换。 https://developer.apple.com/documentation/storekit/skreceiptrefreshrequest/1506038-initwithreceiptproperties?language=objc
+
                 @weakify(self)
                 [self refreshReceipt:^(NSData *receiptData) {
                     @strongify(self)
@@ -271,6 +272,22 @@ static char base64EncodingTable[64] = {
             }
         }
     }
+}
+
++ (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString {
+    if (jsonString == nil) {
+        return nil;
+    }
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                        options:NSJSONReadingMutableContainers
+                                                          error:&err];
+    if(err) {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return dic;
 }
 
 
