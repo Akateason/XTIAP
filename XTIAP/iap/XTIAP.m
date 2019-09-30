@@ -258,7 +258,7 @@ static char base64EncodingTable[64] = {
     }
     else {
         if (self.checkReceiptCompleteBlock) {
-            if (!json) { // fail 收据为空，刷新收据 如果收据无效或丢失，请使用此API请求新收据。在沙盒环境中，您可以使用任何属性组合请求收据，以测试与批量采购计划收据相关的状态转换。 https://developer.apple.com/documentation/storekit/skreceiptrefreshrequest/1506038-initwithreceiptproperties?language=objc
+            if (!json) { // fail 收据为空，刷新收据
 
                 @weakify(self)
                 [self refreshReceipt:^(NSData *receiptData) {
@@ -337,6 +337,7 @@ static char base64EncodingTable[64] = {
 }
 
 #pragma mark ====  刷新凭证
+// 如果收据无效或丢失，请使用此API请求新收据。在沙盒环境中，您可以使用任何属性组合请求收据，以测试与批量采购计划收据相关的状态转换。 https://developer.apple.com/documentation/storekit/skreceiptrefreshrequest/1506038-initwithreceiptproperties?language=objc
 - (void)refreshReceipt:(RefreshReceiptBlock)block {
     self.refreshReceiptBlock = block ;
     SKReceiptRefreshRequest *request = [[SKReceiptRefreshRequest alloc] init];
