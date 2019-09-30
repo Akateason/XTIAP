@@ -258,7 +258,7 @@ static char base64EncodingTable[64] = {
     }
     else {
         if (self.checkReceiptCompleteBlock) {
-            if (!json) { // fail
+            if (!json) { // fail 收据为空，刷新收据
                 @weakify(self)
                 [self refreshReceipt:^(NSData *receiptData) {
                     @strongify(self)
