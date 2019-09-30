@@ -19,6 +19,7 @@ typedef void (^checkReceiptCompleteResponseBlock)(NSDictionary *json,NSError* er
 
 typedef void (^resoreProductsCompleteResponseBlock) (SKPaymentQueue* payment,NSError* error);
 
+typedef void(^RefreshReceiptBlock)(NSData *receiptData);
 
 @interface XTIAP : NSObject <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 XT_SINGLETON_H(XTIAP)
@@ -70,6 +71,8 @@ XT_SINGLETON_H(XTIAP)
 // get local price
 - (NSString *)getLocalePrice:(SKProduct *)product ;
 
+#pragma mark ====  刷新凭证
+- (void)refreshReceipt:(RefreshReceiptBlock)block ;
 @end
 
 

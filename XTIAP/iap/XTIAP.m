@@ -15,6 +15,7 @@
 @property (nonatomic,copy) resoreProductsCompleteResponseBlock  restoreCompletedBlock ;
 @property (nonatomic,copy) checkReceiptCompleteResponseBlock    checkReceiptCompleteBlock ;
 @property (nonatomic,strong) NSMutableData                      *receiptRequestData ;
+@property (nonatomic,copy) RefreshReceiptBlock                  refreshReceiptBlock ;
 
 @property (nonatomic,strong) NSData *m_receiptData ;
 @property (nonatomic,copy) NSString *m_secretKey ;
@@ -211,7 +212,7 @@ static char base64EncodingTable[64] = {
         }
     }
 
-    
+//xtreq有bug换成原生的请求.
 //    [XTRequest reqWithUrl:url mode:XTRequestMode_POST_MODE header:nil parameters:nil rawBody:[dicBody yy_modelToJSONString] hud:NO success:^(id json, NSURLResponse *response) {
 //        NSLog(@"checkReceipt : %@",json) ;
 //        NSInteger status = [json[@"status"] integerValue]  ;
@@ -307,5 +308,24 @@ static char base64EncodingTable[64] = {
         }
     }
 }
+
+#pragma mark ====  刷新凭证
+- (void)refreshReceipt:(RefreshReceiptBlock)block {
+    self.refreshReceiptBlock = block ;
+    SKReceiptRefreshRequest *request = [[SKReceiptRefreshRequest alloc] init];
+    request.delegate = self ;
+    [request start] ;
+}
+
+#pragma mark - ================ SKRequestDelegate =================
+- (void)requestDidFinish:(SKRequest *)request {
+    if ([request isKindOfClass:[SKReceiptRefreshRequest class]]) {
+        NSURL *receiptUrl = [[NSBundle mainBundle] appStoreReceiptURL];
+        NSData *receiptData = [NSData dataWithContentsOfURL:receiptUrl];
+        self.refreshReceiptBlock(receiptData) ;
+    }
+}
+
+
 
 @end
