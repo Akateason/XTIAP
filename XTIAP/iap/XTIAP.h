@@ -51,7 +51,7 @@ XT_SINGLETON_H(XTIAP)
 - (void)buyProduct:(SKProduct *)product ;
 
 // restore Products
-//- (void)restoreProductsWithCompletion:(resoreProductsCompleteResponseBlock)completion;
+- (void)restore ;
 
 /**
  check receipt

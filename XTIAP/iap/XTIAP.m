@@ -354,6 +354,8 @@ static char base64EncodingTable[64] = {
     }
 }
 
-
+- (void)restore {
+    [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+}
 
 @end
